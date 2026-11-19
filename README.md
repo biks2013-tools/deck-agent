@@ -43,6 +43,10 @@ the agent. **Detach** removes the connector and leaves the file exactly as it wa
 The connector works for that file, at that path, on your computer only. It does not contain your access token,
 so a presentation you send to someone else gives them no access. A file you move or copy needs attaching again.
 
+The admin screen shows the installed version and whether a newer one is published, has a System / Light / Dark
+theme switch and a Settings tab. The agent panel in a presentation can be resized by dragging its left edge, top
+edge or top-left corner, and has a Settings tab of its own.
+
 You also need:
 
 - the `nbg-design` skill on the machine (`DECK_AGENT_SKILL_DIR` points to the folder that holds its `SKILL.md`);
