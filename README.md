@@ -30,6 +30,19 @@ deck-agent serve     # keeps running; in the background: brew services start dec
 deck-agent open /path/to/deck.html     # in another terminal: opens the deck with the agent panel
 ```
 
+## Attach a presentation
+
+```sh
+deck-agent admin     # opens the admin screen (the host must be running)
+```
+
+The admin screen lists the presentations in your deck folders. **Attach** writes a small connector into the HTML
+file. From then on the presentation, opened straight from the disk, shows an **Agent** button that brings it to
+the agent. **Detach** removes the connector and leaves the file exactly as it was.
+
+The connector works for that file, at that path, on your computer only. It does not contain your access token,
+so a presentation you send to someone else gives them no access. A file you move or copy needs attaching again.
+
 You also need:
 
 - the `nbg-design` skill on the machine (`DECK_AGENT_SKILL_DIR` points to the folder that holds its `SKILL.md`);
