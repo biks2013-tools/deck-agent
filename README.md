@@ -120,6 +120,10 @@ You also need:
 As a background service the host does not see your shell's variables, so the provider's API key goes in the
 `.env` file as well. The full reference is installed with the package, in `docs/tools/deck-agent.md`.
 
+The **Agent** button on a presentation can be dragged anywhere in the window (off the page number, for one);
+its place is remembered. In the instruction box, the Up and Down arrows bring back earlier instructions. A deck
+attached before 0.9.0 gets the movable button, when opened from the disk, after Detach and Attach.
+
 ## What to know before you use it
 
 Upgrading from 0.4.0 or earlier: remove `DECK_AGENT_DECK_ROOTS` from your settings. It no longer exists, and
