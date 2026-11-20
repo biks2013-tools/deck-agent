@@ -131,6 +131,10 @@ extracts data as JSON. They need three settings: `GOOGLE_API_KEY`, `DECK_AGENT_G
 required since 0.10.0: after an upgrade, add them to `~/.tool-agents/deck-agent/.env`. Files handed to these
 tools are sent to Google.
 
+Many presentations can be open in tabs at once: only the tab in front stays connected to the agent, and a tab
+catches up when you return to it. (Before 0.10.1, six open tabs took every connection the browser allows and
+Send stopped working.)
+
 ## What to know before you use it
 
 Upgrading from 0.4.0 or earlier: remove `DECK_AGENT_DECK_ROOTS` from your settings. It no longer exists, and
