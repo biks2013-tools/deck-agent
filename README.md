@@ -26,9 +26,40 @@ There is no installer for Windows.
 deck-agent init      # writes ~/.tool-agents/deck-agent/.env with a generated access token
                      # fill in the other settings: every one is required
 deck-agent check     # names every setting that is missing or invalid
-deck-agent serve     # keeps running; in the background: brew services start deck-agent
-deck-agent open /path/to/deck.html     # in another terminal: opens the deck with the agent panel
 ```
+
+Then run it in one of two ways.
+
+One step, with a desktop window:
+
+```sh
+deck-agent app [folder]     # starts the host and opens the admin window
+```
+
+Or the host and the admin screen separately, in the browser:
+
+```sh
+deck-agent serve     # keeps running; in the background: brew services start deck-agent
+deck-agent admin [folder]              # in another terminal: the admin screen as a web page
+deck-agent open /path/to/deck.html     # or open one deck directly, with the agent panel
+```
+
+## The desktop window
+
+`deck-agent app` starts the host and opens a window that looks like a native macOS application. Choose a folder
+with **Choose Folder…** (or File > Choose Folder…, Cmd+O); the window lists the presentations of that folder and
+of the folders inside it, and remembers the folders you used. For each presentation there is **Attach** /
+**Detach**, **Open** (in the default browser, with the agent panel; a double click does the same) and Show in
+Finder. The window also has a search field, a Settings view and the installed version.
+
+- Quitting the application (Cmd+Q) stops the host. Closing the window leaves both running; the Dock icon opens
+  the window again. Ctrl+C in the terminal stops both.
+- When a host with the same settings is already running (for example as a background service), the command uses
+  it and leaves it running. It must be the same version; otherwise the command says so and stops.
+- The window is built with Electron. The first `deck-agent app` downloads Electron (about 110 MB) from Electron's
+  releases, once per installed version, so that first start needs the network. On macOS the application is then
+  named "Deck Agent" and signed for your computer.
+- Tested on macOS (Apple Silicon). Linux and Windows are untested.
 
 ## Attach a presentation
 
