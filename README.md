@@ -47,6 +47,10 @@ The admin screen shows the installed version and whether a newer one is publishe
 theme switch and a Settings tab. The agent panel in a presentation can be resized by dragging its left edge, top
 edge or top-left corner, and has a Settings tab of its own.
 
+The panel's Activity tab shows what the agent did for each instruction, step by step: every model response with
+its time, duration and tokens, the model's thinking, and every tool call with its arguments, its result, how long
+it took and whether it failed. A request that is running is shown live. It lists the latest 30 requests.
+
 You also need:
 
 - the `nbg-design` skill on the machine (`DECK_AGENT_SKILL_DIR` points to the folder that holds its `SKILL.md`);
