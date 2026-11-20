@@ -124,6 +124,13 @@ The **Agent** button on a presentation can be dragged anywhere in the window (of
 its place is remembered. In the instruction box, the Up and Down arrows bring back earlier instructions. A deck
 attached before 0.9.0 gets the movable button, when opened from the disk, after Detach and Attach.
 
+The agent can also use **Gemini** models as tools: `gemini_image` creates or edits a picture and saves it in the
+deck's folder, and `gemini_document` reads PDFs (scans too), pictures and text files and answers about them or
+extracts data as JSON. They need three settings: `GOOGLE_API_KEY`, `DECK_AGENT_GEMINI_IMAGE_MODEL` (for example
+`gemini-3.1-flash-image`) and `DECK_AGENT_GEMINI_DOCUMENT_MODEL` (for example `gemini-3.8-flash`). They are
+required since 0.10.0: after an upgrade, add them to `~/.tool-agents/deck-agent/.env`. Files handed to these
+tools are sent to Google.
+
 ## What to know before you use it
 
 Upgrading from 0.4.0 or earlier: remove `DECK_AGENT_DECK_ROOTS` from your settings. It no longer exists, and
