@@ -76,8 +76,9 @@ window as `deck-agent app`; quitting it stops the host.
   shell profile, such as the model provider's API key, must be in that file. `install-app` names the settings
   that are missing there; in the window's Settings, "Keep in the settings file" writes them.
 - When it cannot start, a dialog says why. The host's log is `~/Library/Logs/Deck Agent/host.log`.
-- It follows the installed deck-agent: after `brew upgrade deck-agent` it runs the new version. Run
-  `deck-agent install-app` again to renew the Electron inside it, or after an upgrade made with `install.sh`.
+- It follows the installed deck-agent. Updated from its own window (**Update Now**), it is built again from the
+  new version and opens again by itself. After an update made in a terminal (`deck-agent update`,
+  `brew upgrade deck-agent`), run `deck-agent install-app` again.
 - The application is built for your Mac (about 250 MB, signed for that computer); it is not a file to pass on.
 
 **Settings** in the window is a form over every setting: the provider and model from a list, folders with the
@@ -86,6 +87,22 @@ configuration first and writes nothing if anything is wrong. A valid change goes
 comes from (`~/.tool-agents/deck-agent/.env`, or a local `.env` that already defines it), changing only its own
 line, and the host restarts so that it applies; the window comes back on Settings. A value fixed by a
 command-line flag cannot be changed there. The web admin and the agent panel show the same settings read-only.
+
+## Update it
+
+```bash
+deck-agent update --check    # is a newer version published?
+deck-agent update            # install it
+```
+
+`deck-agent update` installs the latest published version with the tool that installed this one: Homebrew
+(`brew upgrade deck-agent`), or the install script of the release. The window does the same: under Settings it
+shows the installed version, **Update Now** when a newer one is published, and **Check for Updates** (also in
+the application menu on macOS).
+
+The running program is not touched while it works: the new version is put beside it, and the host is then
+started again and continues as the new version. The macOS application is built again from the new version and
+opens again by itself. Work the agent had not finished resumes after the restart.
 
 ## Attach a presentation
 
