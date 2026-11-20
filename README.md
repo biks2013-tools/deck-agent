@@ -61,6 +61,13 @@ Finder. The window also has a search field, a Settings view and the installed ve
   named "Deck Agent" and signed for your computer.
 - Tested on macOS (Apple Silicon). Linux and Windows are untested.
 
+**Settings** in the window is a form over every setting: the provider and model from a list, folders with the
+folder chooser, secrets typed blind (they are never shown; leave one empty to keep it). **Save** checks the whole
+configuration first and writes nothing if anything is wrong. A valid change goes to the .env file the value
+comes from (`~/.tool-agents/deck-agent/.env`, or a local `.env` that already defines it), changing only its own
+line, and the host restarts so that it applies; the window comes back on Settings. A value fixed by a
+command-line flag cannot be changed there. The web admin and the agent panel show the same settings read-only.
+
 ## Attach a presentation
 
 ```sh
