@@ -33,10 +33,12 @@ deck-agent open /path/to/deck.html     # in another terminal: opens the deck wit
 ## Attach a presentation
 
 ```sh
-deck-agent admin     # opens the admin screen (the host must be running)
+deck-agent admin ~/Documents/decks     # opens the admin screen on that folder (the host must be running)
+deck-agent admin                       # the same, on the folder you are in
 ```
 
-The admin screen lists the presentations in your deck folders. **Attach** writes a small connector into the HTML
+The admin screen lists the presentations in that folder and the folders inside it; another folder can be typed
+in the screen. A presentation may be in any folder. **Attach** writes a small connector into the HTML
 file. From then on the presentation, opened straight from the disk, shows an **Agent** button that brings it to
 the agent. **Detach** removes the connector and leaves the file exactly as it was.
 
@@ -62,6 +64,10 @@ As a background service the host does not see your shell's variables, so the pro
 `.env` file as well. The full reference is installed with the package, in `docs/tools/deck-agent.md`.
 
 ## What to know before you use it
+
+Upgrading from 0.4.0 or earlier: remove `DECK_AGENT_DECK_ROOTS` from your settings. It no longer exists, and
+deck-agent refuses to start while it is set. Anyone signed in to the host on your computer can open and attach
+any HTML file on it; the agent's deck and Office tools write only in the folder of the presentation they work on.
 
 - The host listens on `127.0.0.1` only and every request needs the access token.
 - The agent has a shell and can run commands as you, in any folder. The folders you configure limit its deck,
