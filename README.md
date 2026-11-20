@@ -61,6 +61,25 @@ Finder. The window also has a search field, a Settings view and the installed ve
   named "Deck Agent" and signed for your computer.
 - Tested on macOS (Apple Silicon). Linux and Windows are untested.
 
+## The macOS application
+
+```sh
+deck-agent install-app                  # builds /Applications/Deck Agent.app
+deck-agent install-app ~/Applications   # or in another folder
+```
+
+"Deck Agent" is then a regular application: open it from the Launchpad, Spotlight or the Finder, and keep it in
+the Dock (right-click its Dock icon, Options > Keep in Dock). It starts the host by itself and shows the same
+window as `deck-agent app`; quitting it stops the host.
+
+- It has no shell behind it: it reads `~/.tool-agents/deck-agent/.env` only. A key that is only exported in your
+  shell profile, such as the model provider's API key, must be in that file. `install-app` names the settings
+  that are missing there; in the window's Settings, "Keep in the settings file" writes them.
+- When it cannot start, a dialog says why. The host's log is `~/Library/Logs/Deck Agent/host.log`.
+- It follows the installed deck-agent: after `brew upgrade deck-agent` it runs the new version. Run
+  `deck-agent install-app` again to renew the Electron inside it, or after an upgrade made with `install.sh`.
+- The application is built for your Mac (about 250 MB, signed for that computer); it is not a file to pass on.
+
 **Settings** in the window is a form over every setting: the provider and model from a list, folders with the
 folder chooser, secrets typed blind (they are never shown; leave one empty to keep it). **Save** checks the whole
 configuration first and writes nothing if anything is wrong. A valid change goes to the .env file the value
